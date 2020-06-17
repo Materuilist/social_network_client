@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Alert from "./components/shared/Alert";
+import { Authentication } from "./pages/Authentication";
+import { IReducerState } from "./store/reducers";
+import { connect } from "react-redux";
+import { Layout } from "./pages/Layout";
 
-function App() {
+interface IProps {
+  isAuth: boolean;
+}
+
+function App({ isAuth }: IProps) {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Alert />
+      {isAuth ? <Layout /> : <Authentication />}
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = (state: IReducerState) => ({
+  isAuth: state.user.isAuth,
+});
+
+export default connect(mapStateToProps)(App);
