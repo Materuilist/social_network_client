@@ -1,9 +1,11 @@
 import React from "react";
+import { connect } from "react-redux";
+
 import Alert from "./components/shared/Alert";
 import { Authentication } from "./pages/Authentication";
 import { IReducerState } from "./store/reducers";
-import { connect } from "react-redux";
 import { Layout } from "./pages/Layout";
+import styles from './styles.module.scss';
 
 interface IProps {
   isAuth: boolean;
@@ -11,7 +13,7 @@ interface IProps {
 
 function App({ isAuth }: IProps) {
   return (
-    <div className="App">
+    <div className={styles.App}>
       <Alert />
       {isAuth ? <Layout /> : <Authentication />}
     </div>

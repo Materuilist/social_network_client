@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import CSSTransition from "react-transition-group/CSSTransition";
 
-import styles from "./styles.module.sass";
+import styles from "./styles.module.scss";
 import { Message } from "../../../models/UI/message.class";
 import { exists } from "../../../utils/exists";
 import { IReducerState } from "../../../store/reducers";
@@ -21,7 +21,7 @@ interface IOwnProps {}
 
 type IProps = IStateProps & IDispatchProps & IOwnProps;
 
-function Alert({ isShown, message }: IProps) {
+function Alert({ isShown, message, dismiss }: IProps) {
   return (
     <CSSTransition
       in={isShown}
@@ -39,7 +39,7 @@ function Alert({ isShown, message }: IProps) {
     >
       <React.Fragment>
         <div className={styles.Alert}>{message?.message}</div>
-        <button onClick={dismissMessage}>X</button>
+        <button onClick={dismiss}>X</button>
       </React.Fragment>
     </CSSTransition>
   );

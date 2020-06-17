@@ -1,0 +1,43 @@
+@import "../../variables.scss";
+
+.Form {
+  margin: 0 auto;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+
+  &-Item {
+    transition: all 0.3s ease-out;
+    width: 400px;
+    line-height: $fs * 2.2;
+    font-size: $fs * 1.3;
+    margin-bottom: 1.7rem;
+    border-radius: 5px;
+    border: 1px solid $light-color;
+    outline: none;
+    &:hover {
+      background-color: $light-color;
+      border-color: $light-background;
+    }
+  }
+  &>button{
+      cursor: pointer;
+      display: inline-block;
+      margin: 0 auto;
+      width: 150px;
+  }
+  &>input{
+      padding: 5px 10px;
+  }
+}
+
+.Link{
+    text-align: center;
+    color: $rich-color;
+    font-size: 1.1 * $fs;
+    margin-top: 5px;
+    transition: all .2s linear;
+    &:hover{
+        opacity: .5;
+    }
+}
