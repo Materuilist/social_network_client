@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 
 import { IReducerState } from "../../store/reducers";
@@ -7,14 +7,26 @@ import styles from "./styles.module.scss";
 import { Link } from "react-router-dom";
 
 interface IProps {
-  authenticate: (login: string, password: string) => any;
+  authenticate: (login: string, password: string, isRegister:boolean) => any;
+}
+
+enum FormModes{
+  Register,
+  Login
 }
 
 export function AuthenticationForm({ authenticate }: IProps) {
+  const [mode, changeMode] = useState(FormModes.Login)
+
   const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const form: any = event.target as any;
-    authenticate(form.login.value, form.password.value);
+    authenticate(form.login.value, form.password.value, mode === FormModes.Register);
+  };
+
+  const changeModeHandler = (event:React.MouseEvent<HTMLAnchorElement, MouseEvent>)=>{
+    event.preventDefault();
+    changeMode(mode===FormModes.Login?FormModes.Register:FormModes.Login);
   };
 
   return (
@@ -34,18 +46,18 @@ export function AuthenticationForm({ authenticate }: IProps) {
         type="password"
       />
       <button className={styles["Form-Item"]} type="submit">
-        Войти
+        {mode===FormModes.Login?'Войти':'Зарегистрироваться'}
       </button>
-      <Link to="/signup" className={styles.Link}>
-        Регистрация
-      </Link>
+      <a className={styles.Link} href="*" onClick={changeModeHandler}>
+        {mode===FormModes.Login?'Регистрация':'Уже есть аккаунт?'}
+      </a>
     </form>
   );
 }
 
 const mapDispatchToProps = (dispatch: any) => ({
-  authenticate: (login: string, password: string) =>
-    dispatch(initAuth(login, password)),
+  authenticate: (login: string, password: string, isRegister:boolean) =>
+    dispatch(initAuth(login, password, isRegister)),
 });
 
 export default connect(null, mapDispatchToProps)(AuthenticationForm);

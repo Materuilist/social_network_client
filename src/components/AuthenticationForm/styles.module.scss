@@ -20,24 +20,25 @@
       border-color: $light-background;
     }
   }
-  &>button{
-      cursor: pointer;
-      display: inline-block;
-      margin: 0 auto;
-      width: 150px;
+  & > button {
+    cursor: pointer;
+    display: inline-block;
+    margin: 0 auto;
+    width: fit-content;
+    padding: 5px 10px;
   }
-  &>input{
-      padding: 5px 10px;
+  & > input {
+    padding: 5px 10px;
   }
 }
 
-.Link{
-    text-align: center;
-    color: $rich-color;
-    font-size: 1.1 * $fs;
-    margin-top: 5px;
-    transition: all .2s linear;
-    &:hover{
-        opacity: .5;
-    }
+.Link {
+  text-align: center;
+  color: $rich-color;
+  font-size: 1.1 * $fs;
+  margin-top: 5px;
+  transition: all 0.2s linear;
+  &:hover {
+    opacity: 0.5;
+  }
 }

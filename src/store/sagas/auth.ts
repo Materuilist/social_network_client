@@ -8,12 +8,12 @@ import { UserService } from '../../services/api/user';
 import { Message, MessageType } from '../../models/UI/message.class';
 
 export function* authenticate(action:IAction){
-    // yield put(authSucceed(new User(action.login)));
-    const res = yield UserService.signIn(action.login, action.password);
+    const res = yield UserService.authenticate(action.login, action.password, action.isRegister);
     if(typeof res === 'string'){
         yield put(authFail(res));
         return;
     }
+    localStorage.setItem('jwt', res.jwt);
     yield put(authSucceed(new User(action.login)));
 }
 

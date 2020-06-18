@@ -14,3 +14,15 @@ export function dismissMessage(): IAction {
     type: actionTypes.DISMISS_MESSAGE,
   };
 }
+
+export function setLoading(): IAction {
+  return {
+    type: actionTypes.SET_LOADING
+  };
+}
+
+export function unsetLoading(): IAction {
+  return {
+    type: actionTypes.UNSET_LOADING
+  };
+}

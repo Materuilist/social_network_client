@@ -2,11 +2,12 @@ import * as actionTypes from "./types";
 import { IAction } from "../../models/store/action.interface";
 import { User } from "../../models/entities/user.class";
 
-export function initAuth(login: string, password: string): IAction {
+export function initAuth(login: string, password: string, isRegister:boolean): IAction {
   return {
     type: actionTypes.AUTH_INIT,
     login,
-    password
+    password,
+    isRegister
   };
 }
 

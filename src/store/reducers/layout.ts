@@ -8,7 +8,7 @@ export interface ILayoutState {
 }
 
 const initialState: ILayoutState = {
-  isLoading: false,
+  isLoading: true,
   message: null,
 };
 
