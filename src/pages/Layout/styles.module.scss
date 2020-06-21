@@ -1,0 +1,33 @@
+@import "../../variables.scss";
+
+.Layout{
+    position: relative;
+}
+
+.Body{
+    position: relative;
+    padding-top: $header-height;
+    display: flex;
+    margin-top: 30px;
+}
+
+.Navigation{
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    font-weight: 500;
+    font-size:1.1rem;
+    .Link{
+        transition: all .1s linear;
+        padding: 15px 0 15px 10px;
+        text-decoration: none;
+        margin-left: 30%;
+        color:$rich-color;
+        &:hover, &.Active{
+            background-color: $light-color;
+        }
+        &:hover{
+            opacity: .7;
+        }
+    }
+}

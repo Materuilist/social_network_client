@@ -1,0 +1,28 @@
+@import "../../variables.scss";
+
+.HeaderWrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    background-color: $rich-color;
+    height: $header-height;
+    z-index: 100;
+}
+
+.Header{
+    height: 70%;
+    width: 80%;
+    margin:0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.Logo{
+    height: 100%;
+    border-radius: 50%;
+    cursor: pointer;
+}

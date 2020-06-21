@@ -1,5 +1,38 @@
+@import "./variables.scss";
+
 body{
     margin:0;
     padding:0;
     box-sizing: border-box;
+    font-family: $ff;
+}
+
+::-webkit-scrollbar-button {
+    width: .7rem;
+    height: 0;
+}
+
+::-webkit-scrollbar-track {
+   background-color: #ecedee;
+   -webkit-border-radius: 2rem;
+   border-radius: 2rem;
+}
+
+::-webkit-scrollbar-thumb {
+   -webkit-border-radius: 2rem;
+   border-radius: 2rem;
+   background-color: $rich-color;
+}
+
+::-webkit-scrollbar-thumb:hover {
+   background-color: $more-rich-color;
+}
+
+::-webkit-resizer {
+   width: .7rem;
+   height: 0;
+}
+
+::-webkit-scrollbar {
+   width: .7rem;
 }
